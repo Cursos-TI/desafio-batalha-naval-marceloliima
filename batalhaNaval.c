@@ -2,65 +2,86 @@
 
 int main() {
 
-    // Criando o tabuleiro 10x10
-    int tabuleiro[10][10];
+    // Matrizes das habilidades (todas 5x5)
+    int cone[5][5];
+    int cruz[5][5];
+    int octaedro[5][5];
 
-    // Preenchendo o tabuleiro com 0
-    for(int i = 0; i < 10; i++) {
-        for(int j = 0; j < 10; j++) {
-            tabuleiro[i][j] = 0;
+    // Primeiro preenchendo tudo com 0
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+            cone[i][j] = 0;
+            cruz[i][j] = 0;
+            octaedro[i][j] = 0;
         }
     }
 
-    // Navios tamanho 3
-    int navio1[3] = {3, 3, 3}; // horizontal
-    int navio2[3] = {3, 3, 3}; // vertical
-    int navio3[3] = {3, 3, 3}; // diagonal direita
-    int navio4[3] = {3, 3, 3}; // diagonal esquerda
+    // =============================
+    // HABILIDADE - CONE
+    // =============================
 
-    // Coordenadas escolhidas
-    // Horizontal
-    int hL = 1;
-    int hC = 2;
+    cone[0][2] = 1;
 
-    // Vertical
-    int vL = 4;
-    int vC = 7;
+    cone[1][1] = 1;
+    cone[1][2] = 1;
+    cone[1][3] = 1;
 
-    // Diagonal direita
-    int d1L = 6;
-    int d1C = 1;
+    cone[2][0] = 1;
+    cone[2][1] = 1;
+    cone[2][2] = 1;
+    cone[2][3] = 1;
+    cone[2][4] = 1;
 
-    // Diagonal esquerda
-    int d2L = 2;
-    int d2C = 8;
+    // =============================
+    // HABILIDADE - CRUZ
+    // =============================
 
-    // Posicionando navio horizontal
-    tabuleiro[hL][hC]     = 3;
-    tabuleiro[hL][hC + 1] = 3;
-    tabuleiro[hL][hC + 2] = 3;
+    cruz[0][2] = 1;
 
-    // Posicionando navio vertical
-    tabuleiro[vL][vC]     = 3;
-    tabuleiro[vL + 1][vC] = 3;
-    tabuleiro[vL + 2][vC] = 3;
+    cruz[1][0] = 1;
+    cruz[1][1] = 1;
+    cruz[1][2] = 1;
+    cruz[1][3] = 1;
+    cruz[1][4] = 1;
 
-    // Posicionando navio diagonal descendo para direita
-    tabuleiro[d1L][d1C] = 3;
-    tabuleiro[d1L + 1][d1C + 1] = 3;
-    tabuleiro[d1L + 2][d1C + 2] = 3;
+    cruz[2][2] = 1;
 
-    // Posicionando navio diagonal descendo para esquerda
-    tabuleiro[d2L][d2C] = 3;
-    tabuleiro[d2L + 1][d2C - 1] = 3;
-    tabuleiro[d2L + 2][d2C - 2] = 3;
+    // =============================
+    // HABILIDADE - OCTAEDRO
+    // =============================
 
-    // Exibindo o tabuleiro completo
-    printf("TABULEIRO NIVEL AVENTUREIRO:\n\n");
+    octaedro[0][2] = 1;
 
-    for(int i = 0; i < 10; i++) {
-        for(int j = 0; j < 10; j++) {
-            printf("%d ", tabuleiro[i][j]);
+    octaedro[1][1] = 1;
+    octaedro[1][2] = 1;
+    octaedro[1][3] = 1;
+
+    octaedro[2][2] = 1;
+
+    // =============================
+    // EXIBINDO AS MATRIZES
+    // =============================
+
+    printf("HABILIDADE: CONE\n\n");
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+            printf("%d ", cone[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nHABILIDADE: CRUZ\n\n");
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+            printf("%d ", cruz[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nHABILIDADE: OCTAEDRO\n\n");
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+            printf("%d ", octaedro[i][j]);
         }
         printf("\n");
     }
